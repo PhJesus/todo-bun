@@ -2,8 +2,13 @@
   "name": "todobun",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run tw:dev\"",
+    "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch"
+  },
   "devDependencies": {
     "bun-types": "latest",
+    "tailwindcss": "^3.3.3",
     "typed-html": "^3.0.1"
   },
   "peerDependencies": {
@@ -11,6 +16,7 @@
   },
   "dependencies": {
     "@elysiajs/html": "^0.6.5",
+    "concurrently": "^8.2.1",
     "elysia": "^0.6.23"
   }
 }
